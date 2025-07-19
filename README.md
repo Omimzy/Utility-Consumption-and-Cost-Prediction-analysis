@@ -110,6 +110,72 @@ FROM
 #### •	🧪 Further analysis with weather and real-time grid data can improve planning
 
 
+# COST PREDICTION WITH PYTHON
+```
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+import numpy as np
+
+# 1. Load and prepare data
+df = pd.read_csv(r"/content/Train.csv")  # Raw string to avoid backslash issues
+X = df[['Resident_Count', 'Water_Consumption_Per_Building', 'Utilization_Rate', 'Air_Quality_Index']]
+y = df['Electricity_Cost']
+
+# 2. Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# 3. Train model
+model = RandomForestRegressor()
+model.fit(X_train, y_train)
+
+# 4. Predict
+y_pred = model.predict(X_test)
+
+# 5. Evaluate
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+print("RMSE:", rmse)
+print("R²:", r2_score(y_test, y_pred))
+
+# Convert test results to DataFrame
+results = pd.DataFrame({
+    'Actual': y_test,
+    'Predicted': y_pred
+})
+
+# View top 10
+print(results.head(10))
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Step 1: Combine actual and predicted into a DataFrame
+results = pd.DataFrame({
+    'Actual': y_test.values,
+    'Predicted': y_pred
+})
+
+# Step 2: Reset index for plotting
+results = results.reset_index(drop=True)
+
+# Step 3: Plot
+plt.figure(figsize=(12, 6))
+plt.plot(results['Actual'], label='Actual', color='blue')
+plt.plot(results['Predicted'], label='Predicted', color='red')
+plt.title('Electricity Cost Prediction - Actual vs Predicted')
+plt.xlabel('Sample Index')
+plt.ylabel('Electricity Cost')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+```
+
+
 ## 🧰 Tools Used
 #### •	Power BI Desktop
 #### •	Python (Pandas for preprocessing)
