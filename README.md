@@ -47,6 +47,8 @@ This project focuses on analyzing and predicting utility consumption patterns—
 #### •	Scatter plots for consumption analysis
 #### •	KPI cards for executive-level overview
 
+
+
 ## 📌 Recommendations
 #### •	🎯 Target Whitefield & Koramangala for energy optimization
 #### •	🌱 Consider sustainability programs in high-density residential zones
