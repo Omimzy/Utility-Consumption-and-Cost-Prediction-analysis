@@ -28,7 +28,62 @@ This project focuses on analyzing and predicting utility consumption patterns—
 ### Lowest:
 #### •	Electronic City – 17.5K (despite being a tech hub)
 
+##  KPI QUERY 
+```
+---Electricity Cost by Structure
+SELECT Structure_Type, ROUND(AVG(Electricity_Cost), 3) AS Avg_Electricity_Cost
+FROM train
+GROUP BY Structure_Type
 
+---List top 5 areas with highest average recycling rate.
+SELECT TOP 5 Site_Area, ROUND(AVG(Recycling_Rate),3) AS MAX_Recycling_rate 
+FROM Train
+GROUP BY Site_Area
+
+--- Identify buildings where water usage > 1000 but electricity cost < 10,000.
+
+SELECT 
+	Site_Area, Water_consumption_per_building, 
+	electricity_cost
+FROM Train
+WHERE 
+	Water_consumption_per_building > 1000 
+AND 
+	electricity_cost < 10000
+GROUP BY 
+	Site_Area, Water_consumption_per_building, 
+	electricity_cost
+
+--- Correlate 'Utilization_Rate' and 'Electricity_Cost' per site.
+
+SELECT
+    Site_Area,
+    -- Pearson Correlation Coefficient Formula
+    SUM((Utilization_Rate - AvgUtil) * (Electricity_Cost - AvgCost)) /
+    NULLIF(
+        SQRT(SUM(POWER(Utilization_Rate - AvgUtil, 2))) * 
+        SQRT(SUM(POWER(Electricity_Cost - AvgCost, 2))),
+        0
+    ) AS Correlation_Coefficient
+FROM (
+    SELECT *,
+ -- Calculate mean per Site_ID
+        AVG(Utilization_Rate) OVER (PARTITION BY Site_Area) AS AvgUtil,
+        AVG(Electricity_Cost) OVER (PARTITION BY Site_Area) AS AvgCost
+    FROM Train
+) AS SubQuery
+GROUP BY Site_Area;
+
+
+--- Count buildings with air quality index > 100.
+SELECT COUNT(Site_Area) AS Building_Count
+FROM
+(
+	SELECT Site_Area, air_quality_index 
+	FROM Train
+	WHERE air_quality_index > 100
+) AS FilteredData;
+```
 ## Analytical Insight
 ### ⚡ Electricity Cost vs Structure Type
 #### •	Industrial & Commercial buildings have the highest cost, followed by Residential and Institutional.
