@@ -114,8 +114,10 @@ FROM
 #### •	Power BI Desktop
 #### •	Python (Pandas for preprocessing)
 #### •	Geo Mapping (PIN codes + Lat/Lon coordinates)
+#### .  EXCEL
+#### .  SQL SERVER
 
-##📎 Files Included
+## Files Include
 #### 📂 /dashboard
 #### ├── ELECT DONE.pdf                # Final Dashboard Export
 #### ├── Train_with_Pin_and_Geo.csv   # Cleaned Dataset with Geolocation
