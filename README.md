@@ -1,6 +1,6 @@
 # Utility-Consumption-and-Cost-Prediction-analysis
 This project focuses on analyzing and predicting utility consumption patterns—primarily electricity and water usage across various neighborhoods and structure types in Bangalore, India.
-## 🔍 Project Overview
+##  Project Overview
 #### This project analyzes utility consumption patterns specifically electricity and water usage across different neighborhoods (Site Areas) and structure types in Bangalore, India. The data visualized in Power BI reveals usage efficiency, cost hotspots, and sustainability metrics for better decision-making in urban infrastructure planning and also a cost prediction for the consumption of Electricity using Python.
 
 ## Dataset
@@ -11,7 +11,7 @@ This project focuses on analyzing and predicting utility consumption patterns—
 ##### o	Water_Consumption_Per_Building, Electricity_Cost,
 ##### o	Resident_Count, Air_Quality_Index, Utilization_Rate, etc.
 
-## 📌 Key Performance Indicators (KPIs)
+##  Key Performance Indicators (KPIs)
 #### Metric	                   -                 Value
 #### Average Electricity Cost	      -        18,000
 #### Average Water Consumption	      -      673 units/building
@@ -85,13 +85,13 @@ FROM
 ) AS FilteredData;
 ```
 ## Analytical Insight
-### ⚡ Electricity Cost vs Structure Type
+###  Electricity Cost vs Structure Type
 #### •	Industrial & Commercial buildings have the highest cost, followed by Residential and Institutional.
-### 💧 Water Consumption
+###  Water Consumption
 #### •	Uniform across sites (~0.6K–0.7K units), suggesting efficient baseline usage citywide.
-### 🌍 Environmental Observation
+###  Environmental Observation
 #### •	Average AQI = 48: Indicates moderately healthy air, though areas like Indiranagar may need targeted environmental policies.
-### 📈 Cost vs Consumption Correlation
+###  Cost vs Consumption Correlation
 #### •	Positive trend between electricity cost and consumption rate (640–720 units) indicates predictable load, with potential for demand optimization.
 
 
@@ -104,10 +104,10 @@ FROM
 
 
 
-## 📌 Recommendations
-#### •	🎯 Target Whitefield & Koramangala for energy optimization
-#### •	🌱 Consider sustainability programs in high-density residential zones
-#### •	🧪 Further analysis with weather and real-time grid data can improve planning
+##  Recommendations
+#### •	 Target Whitefield & Koramangala for energy optimization
+#### •	 Consider sustainability programs in high-density residential zones
+#### •	 Further analysis with weather and real-time grid data can improve planning
 
 
 # COST PREDICTION WITH PYTHON
@@ -176,7 +176,7 @@ plt.show()
 ```
 
 
-## 🧰 Tools Used
+##  Tools Used
 #### •	Power BI Desktop
 #### •	Python (Pandas for preprocessing)
 #### •	Geo Mapping (PIN codes + Lat/Lon coordinates)
