@@ -183,10 +183,6 @@ plt.show()
 #### .  EXCEL
 #### .  SQL SERVER
 
-## Files Include
-#### 📂 /dashboard
-#### ├── ELECT DONE.pdf                # Final Dashboard Export
-#### ├── Train_with_Pin_and_Geo.csv   # Cleaned Dataset with Geolocation
-#### ├── README.md                     # Project Summary
+
 
 
